@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessGUI", "ProcessGUI\ProcessGUI.csproj", "{32F797BD-4250-4A95-9787-5F3573D7317A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32F797BD-4250-4A95-9787-5F3573D7317A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32F797BD-4250-4A95-9787-5F3573D7317A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32F797BD-4250-4A95-9787-5F3573D7317A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32F797BD-4250-4A95-9787-5F3573D7317A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70CF5B1E-23A0-437B-85DD-97DEDF97D54F}
+	EndGlobalSection
+EndGlobal
