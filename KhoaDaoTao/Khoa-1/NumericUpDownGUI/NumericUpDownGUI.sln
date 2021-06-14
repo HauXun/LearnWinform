@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumericUpDownGUI", "NumericUpDownGUI\NumericUpDownGUI.csproj", "{9101835E-5B90-42A3-961A-C594B4A91D8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9101835E-5B90-42A3-961A-C594B4A91D8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9101835E-5B90-42A3-961A-C594B4A91D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9101835E-5B90-42A3-961A-C594B4A91D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9101835E-5B90-42A3-961A-C594B4A91D8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B659A9D-344C-44DC-9B1B-9471A0C688B0}
+	EndGlobalSection
+EndGlobal
