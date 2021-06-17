@@ -28,7 +28,6 @@ namespace ComboBoxGUI
 
 		private void buttonDatHang_Click(object sender, EventArgs e)
 		{
-			comboBoxRegionPhoneNumber.Text = comboBoxRegionPhoneNumber.Items[0].ToString();
 
 			// Xóa bỏ những thông báo lỗi nếu có
 			errorProviderWar.SetError(textBoxName, "");
@@ -120,6 +119,11 @@ namespace ComboBoxGUI
 				MessageBox.Show($"Bạn đã chọn hình thức thanh toán {comboBoxHinhThucTT.SelectedItem}",
 					"Thanh toán", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
+		}
+
+		private void Form1_Load(object sender, EventArgs e)
+		{
+			comboBoxRegionPhoneNumber.Text = comboBoxRegionPhoneNumber.Items[0].ToString();
 		}
 	}
 }

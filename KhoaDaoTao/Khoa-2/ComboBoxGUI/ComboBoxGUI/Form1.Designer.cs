@@ -87,9 +87,9 @@ namespace ComboBoxGUI
 			// 
 			// textBoxNumberPhone
 			// 
-			this.textBoxNumberPhone.Location = new System.Drawing.Point(148, 70);
+			this.textBoxNumberPhone.Location = new System.Drawing.Point(138, 70);
 			this.textBoxNumberPhone.Name = "textBoxNumberPhone";
-			this.textBoxNumberPhone.Size = new System.Drawing.Size(210, 25);
+			this.textBoxNumberPhone.Size = new System.Drawing.Size(220, 25);
 			this.textBoxNumberPhone.TabIndex = 4;
 			// 
 			// groupBoxDonHang
@@ -204,7 +204,7 @@ namespace ComboBoxGUI
             "+582"});
 			this.comboBoxRegionPhoneNumber.Location = new System.Drawing.Point(76, 70);
 			this.comboBoxRegionPhoneNumber.Name = "comboBoxRegionPhoneNumber";
-			this.comboBoxRegionPhoneNumber.Size = new System.Drawing.Size(66, 25);
+			this.comboBoxRegionPhoneNumber.Size = new System.Drawing.Size(56, 25);
 			this.comboBoxRegionPhoneNumber.TabIndex = 10;
 			// 
 			// Form1
@@ -226,6 +226,7 @@ namespace ComboBoxGUI
 			this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.Name = "Form1";
 			this.Text = "Form1";
+			this.Load += new System.EventHandler(this.Form1_Load);
 			this.groupBoxDonHang.ResumeLayout(false);
 			this.groupBoxHinhThucTT.ResumeLayout(false);
 			this.groupBoxInfo.ResumeLayout(false);
