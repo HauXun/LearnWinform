@@ -12,13 +12,29 @@ namespace QuanLyNhaHang
 {
 	public partial class SignInForm : Form
 	{
+		User NhanVien = new User();
 		public SignInForm()
 		{
 			InitializeComponent();
+
+			NhanVien.Name = "admin";
+			NhanVien.Pass = "admin";
+			NhanVien.IsNhanVien = true;
 		}
 
-		string id = "admin";
-		string password = "admin";
+		void DangNhap(User user)
+		{
+			// Mở form
+			MainForm form = new MainForm(user);
+			form.Show();
+			form.DangXuat += Form_DangXuat;
+
+			// Xóa dữ liệu các textBox
+			ClearTextBox();
+
+			//this.Visible = false;
+			this.Hide();
+		}
 
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
@@ -43,16 +59,7 @@ namespace QuanLyNhaHang
 			// Nếu đăng nhập đúng
 			if (ValidateDangNhap(tbName.Text, tbPassword.Text))
 			{
-				// Mở form
-				MainForm form = new MainForm();
-				form.Show();
-				form.DangXuat += Form_DangXuat;
-
-				// Xóa dữ liệu các textBox
-				ClearTextBox();
-
-				//this.Visible = false;
-				this.Hide();
+				DangNhap(NhanVien);
 			}	
 			else
 			{
@@ -82,7 +89,7 @@ namespace QuanLyNhaHang
 		/// <returns></returns>
 		bool ValidateDangNhap(string id, string password)
 		{
-			if (id.Equals(this.id) && password.Equals(this.password))
+			if (id.Equals(NhanVien.Name) && password.Equals(NhanVien.Pass))
 				return true;
 			return false;
 		}
@@ -110,6 +117,11 @@ namespace QuanLyNhaHang
 		private void btnExit_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
+		}
+
+		private void btnGuest_Click(object sender, EventArgs e)
+		{
+			DangNhap(null);
 		}
 	}
 }

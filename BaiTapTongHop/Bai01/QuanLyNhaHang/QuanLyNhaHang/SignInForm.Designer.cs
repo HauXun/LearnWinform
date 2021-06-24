@@ -59,6 +59,7 @@ namespace QuanLyNhaHang
 			this.btnGuest.TabIndex = 1;
 			this.btnGuest.Text = "Khách";
 			this.btnGuest.UseVisualStyleBackColor = true;
+			this.btnGuest.Click += new System.EventHandler(this.btnGuest_Click);
 			// 
 			// btnExit
 			// 
