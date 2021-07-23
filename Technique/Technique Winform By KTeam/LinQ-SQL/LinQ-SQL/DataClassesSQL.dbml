@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TestProjectDB" Class="DataClassesSQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=TestProjectDB;Integrated Security=True" SettingsObjectName="LinQ_SQL.Properties.Settings" SettingsPropertyName="TestProjectDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Question" Member="Questions">
+    <Type Name="Question">
+      <Column Name="QuestionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SubjectID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="QContent" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="OptionA" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="OptionB" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="OptionC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="OptionD" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Answer" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Subject_Question" Member="Subject" ThisKey="SubjectID" OtherKey="SubjectID" Type="Subject" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserRole" Member="UserRoles">
+    <Type Name="UserRole">
+      <Column Name="RoleID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="UserRole_UserAccount" Member="UserAccounts" ThisKey="RoleID" OtherKey="RoleID" Type="UserAccount" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Subject" Member="Subjects">
+    <Type Name="Subject">
+      <Column Name="SubjectID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SubjectName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Subject_Question" Member="Questions" ThisKey="SubjectID" OtherKey="SubjectID" Type="Question" />
+      <Association Name="Subject_TestHistory" Member="TestHistories" ThisKey="SubjectID" OtherKey="SubjectID" Type="TestHistory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TestHistory" Member="TestHistories">
+    <Type Name="TestHistory">
+      <Column Name="TestID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubjectID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TestDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CorrectAnswer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalQuestion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Mark" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Subject_TestHistory" Member="Subject" ThisKey="SubjectID" OtherKey="SubjectID" Type="Subject" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="UserAccount_TestHistory" Member="UserAccount" ThisKey="UserID" OtherKey="UserID" Type="UserAccount" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserAccount" Member="UserAccounts">
+    <Type Name="UserAccount">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="UserAccount_TestHistory" Member="TestHistories" ThisKey="UserID" OtherKey="UserID" Type="TestHistory" />
+      <Association Name="UserRole_UserAccount" Member="UserRole" ThisKey="RoleID" OtherKey="RoleID" Type="UserRole" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+</Database>
